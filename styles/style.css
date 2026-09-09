@@ -142,7 +142,6 @@ header styles
     display: flex;
     align-items: center;
     padding: 0 1.5rem;
-    border-bottom: 1px solid var(--border);
 }
 
 /*=============================================
@@ -153,4 +152,101 @@ System overview
     padding: 1.5rem;
 }
 
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
 
+.kpi-card {
+    background: var(--card);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    min-width: 0;
+}
+
+.kpi-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.kpi-card-top > span:first-child {
+    color: var(--muted-text);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.kpi-icon {
+    color: var(--prinary);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.kpi-value {
+    margin-top: 1rem;
+    line-height: 1.1;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.kpi-change {
+    color: var(--muted-text);
+    font-size: 1rem;
+}
+
+
+/*=============================================
+Chart Panels
+============================================ */
+
+.dashboard-panel {
+    background: var(--card);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.onboarding-panel {
+    grid-column: span 2;
+}
+
+.distribution-panel {
+    grid-column: span 1;
+}
+
+
+.activity-panel {
+    grid-column: span 1;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.panel-header h3 {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.panel-action {
+    border: none;
+    background: transparent;
+    color: var(--muted-text);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+
+}
+
+.chart-area {
+    width: 100%;
+    height: 14rem;
+}
