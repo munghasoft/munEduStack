@@ -164,6 +164,9 @@
                         </div>
                     </section>
 
+                    <!-- ============ CHART 2 ===== -->
+
+
                     <section class="dashboard-panel distribution-panel">
 
                         <div class="panel-header">
@@ -178,6 +181,8 @@
                         </div>
                     </section>
 
+                    <!-- ============ ACTIVITY TABLE ===== -->
+
                     <section class="dashboard-panel activity-panel">
 
                         <div class="panel-header">
@@ -186,7 +191,7 @@
                             <button class="panel-action"></button>
                         </div>
 
-                        <div class="activity-table-wrapper">
+                        <div class="table-wrapper">
 
                             <table class="activity-table">
 
@@ -221,18 +226,200 @@
                                         <td>311/0/2026</td>
                                     </tr>
 
-                                    <tr>
-                                        <td>Gulu High School</td>
-                                        <td>Admin</td>
-                                        <td><span class="status active-status">Active</span></td>
-                                        <td>311/0/2026</td>
-                                    </tr>
                                 </tbody>
                             </table>
 
 
                         </div>
 
+                    </section>
+
+                    <!-- ============ SYSTEM PERFORMANCE ===== -->
+
+                    <section class="dashboard-panel performance-panel">
+
+                        <div class="panel-header">
+
+                            <div><h3>Server Load & Performance</h3></div>
+                            <span class="kpi-icon"><i class="bx bx-trending-up" ></i></span>
+                        </div>
+
+                        <div class="chart-area" id="systemPerformanceChart">
+
+                            
+                        </div>
+                    </section>
+
+                    <!-- ============ API LATENCY ===== -->
+
+                    <section class="dashboard-panel api-latency-panel">
+
+                        <div class="panel-header">
+
+                            <div><h3>API Latency</h3></div>
+                            <span class="kpi-icon"><i class="bx bx-trending-up" ></i></span>
+                        </div>
+
+                        <div class="table-wrapper">
+
+                            <table class="metrics-table">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>Services</th>
+                                        <th>Admin</th>
+                                        <th>Teacher</th>
+                                        <th>Parent</th>
+                                        <th>Student</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>API</td>
+                                        <td class="good">16ms</td>
+                                        <td class="good">07ms</td>
+                                        <td class="warning">5.5ms</td>
+                                        <td class="good">8ms</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Memory</td>
+                                        <td class="good">70ms</td>
+                                        <td class="warning">55ms</td>
+                                        <td class="good">5ms</td>
+                                        <td class="warning">10ms</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Rwports</td>
+                                        <td class="good">16ms</td>
+                                        <td class="good">62ms</td>
+                                        <td class="danger">30ms</td>
+                                        <td class="good">90ms</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>login</td>
+                                        <td class="good">10ms</td>
+                                        <td class="good">23ms</td>
+                                        <td class="good">9ms</td>
+                                        <td class="good">37ms</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                    </section>
+
+                    <!-- ============ SECURITY ALERTS ===== -->
+
+                    <section class="dashboard-panel security-panel">
+
+                        <div class="panel-header">
+
+                            <div><h3>Security Alerts & Anomalies</h3></div>
+                            <button class="panel-action"></button>
+                        </div>
+
+                        <div class="table-wrapper">
+
+                            <table class="alert-table">
+
+                                <thead>
+                                    <tr>
+                                        <th>Alertk</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Unauthorized login attempt</td>
+                                        <td>01/09/2026</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Multiple failed API calls</td>
+                                        <td>3/9/2026</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Multiple failed API calls</td>
+                                        <td>31/9/2026</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Multiple failed API calls</td>
+                                        <td>31/10/2026</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Multiple failed API calls</td>
+                                        <td>31/10/2026</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Multiple failed API calls</td>
+                                        <td>31/10/2026</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+
+                    </section>
+
+                    <!-- ============ Billing and revenue ===== -->
+
+                    <section class="dashboard-panel billing-panel">
+
+                        <div class="panel-header">
+
+                            <div><h3>Billing & Revnue</h3></div>
+                            <span class="kpi-icon"><i class="bx bx-trending-up" ></i></span>
+                        </div>
+
+                        <div class="chart-area" id="billingRevenueChart">
+
+                            
+                        </div>
+                    </section>
+
+                    <!-- ============ ADMIN TASKS ===== -->
+
+                    <section class="dashboard-panel admin-tasks-panel">
+
+                        <div class="panel-header">
+
+                            <div><h3>Admin Tasks & Notification</h3></div>
+
+                        </div>
+                        
+                        <ul class="admin-task-list">
+
+                            <li class="admin-task-item">
+
+                                <span>License renewal due for institution</span>
+                                <button class="task-action"><i class="bx bx-cog" ></i></button>
+                            </li>
+
+                            <li class="admin-task-item">
+
+                                <span>New system Update available</span>
+                                <button class="task-action"><i class="bx bx-cog" ></i></button>
+                            </li>
+                            <li class="admin-task-item">
+
+                                <span>Renewal pending feature request</span>
+                                <button class="task-action"><i class="bx bx-cog" ></i></button>
+                            </li>
+                        </ul>
                     </section>
                     
                     
@@ -243,6 +430,8 @@
         </maim>
 
     </div>
+
+    <script src="scripts/admin.js"></script>
     
 </body>
 </html>
