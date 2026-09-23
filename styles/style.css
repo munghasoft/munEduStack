@@ -8,6 +8,9 @@ GLOBAL CUSTOM VARIABLE
     --sidebar: #102027;
     --card: #1b263b;
     --prinary: #20b8b0;
+    --success: #2ecc71;
+    --warning: #f1c40f;
+    --danger: #e74c3c;
     --text: #fff;
     --muted-text: #9aaeb5;
     --border: #2d4a53;
@@ -140,10 +143,68 @@ header styles
 ============================================ */
 
 .top-header {
+    width: 100%;
     min-height: 4rem;
     display: flex;
     align-items: center;
-    padding: 0 1.5rem;
+    justify-content: space-between;
+    padding: 0 1.25rem;
+    background: var(--card);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    color: var(--muted-text);
+    font-size: 1.25rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.header-title h1 {
+    margin: 0;
+    color: var(--muted-text);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.notification-btn,
+.admin-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    color: var(--muted-text);
+    font-size: 1.25rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.notification-btn:hover,
+.sidebar-toggle:hover,
+.admin-avatar:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--prinary);
 }
 
 /*=============================================
@@ -278,6 +339,7 @@ DAshboard Panels
 .chart-area {
     width: 100%;
     height: 9rem;
+    position: relative;
 }
 
 /*=============================================
@@ -289,6 +351,7 @@ dashboard panel table contents
     max-height: 8.5rem;
     overflow-y: auto;
     overflow-x: hidden;
+    background: transparent;
 }
 
 /*=============================================
@@ -383,25 +446,40 @@ Status colors
 }
 
 .active-status {
-    background:var(--table-background)
+    background: rgba(46, 204, 113, 0.18);
+}
+
+.pending-status {
+    background: rgba(241, 196, 15, 0.18);
+}
+
+.suspended-status {
+    background: rgba(231, 76, 60, 0.18);
 }
 /*=============================================
 dashboard panel admin task contents
 ============================================ */
 
 .admin-task-list {
+    width: 100%;
+    max-height: 9rem;
+    overflow-y: auto;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
 
 .admin-task-item {
+    width: 100%;
     color: var(--muted-text);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.75rem 0;
+    padding: 0.55rem 0;
     border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: color 0.2s ease;
 }
 
 .admin-task-item:last-child {
@@ -410,6 +488,23 @@ dashboard panel admin task contents
 
 .admin-task-item span {
     font-size: 0.65rem;
+    min-width: none;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.admin-task-item i {
+    flex-shrink: 0;
+    background-color: transparent;
+    color: var(--prinary);
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.admin-task-item:hover {
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .task-action {

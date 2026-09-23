@@ -86,7 +86,27 @@
 
             <header class="top-header">
 
-                <h1>Super Administrator Control Panel - System Overview</h1>
+                <div class="header-left">
+
+                    <button class="sidebar-toggle" id="sidebarToggle">
+                        <i class="bx bx-menu"></i>
+                    </button>
+
+                    <div class="header-title">
+                        <h1>Super Administrator Control Panel- System Overview</h1>
+                    </div>
+                </div>
+
+                <div class="header-right">
+
+                    <button class="notification-btn" id="notificationBtn">
+                        <i class="bx bx-bell"></i>
+                    </button>
+
+                    <div class="admin-avatar">
+                        <i class="bx bx-user"></i>
+                    </div>
+                </div>
 
             </header>
 
@@ -158,7 +178,13 @@
                             <span class="kpi-icon"><i class="bx bx-trending-up" ></i></span>
                         </div>
 
-                        <div class="chart-area" id="institutionOnboardChart">
+                        <div class="chart-area">
+
+                            <canvas class="onboardingChart">
+
+
+                            </canvas>
+
 
                             
                         </div>
@@ -175,7 +201,11 @@
                             <span class="kpi-icon"><i class="bx bx-trending-up" ></i></span>
                         </div>
 
-                        <div class="chart-area" id="userOnboardChart">
+                        <div class="chart-area">
+
+                            <canvas class="userRoleChart">
+
+                            </canvas>
 
 
                         </div>
@@ -204,7 +234,7 @@
                                     </tr>
                                 </thead>
 
-                                <tbody>
+                                <tbody id="activityTableBody">
                                     <tr>
                                         <td>Kampala High School</td>
                                         <td>Admin</td>
@@ -244,9 +274,9 @@
                             <span class="kpi-icon"><i class="bx bx-trending-up" ></i></span>
                         </div>
 
-                        <div class="chart-area" id="systemPerformanceChart">
+                        <div class="chart-area">
 
-                            
+                            <canvas class="serverLoadChart"></canvas>
                         </div>
                     </section>
 
@@ -268,47 +298,15 @@
 
                                     <tr>
 
-                                        <th>Services</th>
-                                        <th>Admin</th>
-                                        <th>Teacher</th>
-                                        <th>Parent</th>
-                                        <th>Student</th>
+                                        <th>Endpoint</th>
+                                        <th>Response Time</th>
+                                        <th>Status</th>
                                     </tr>
 
                                 </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td>API</td>
-                                        <td class="good">16ms</td>
-                                        <td class="good">07ms</td>
-                                        <td class="warning">5.5ms</td>
-                                        <td class="good">8ms</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Memory</td>
-                                        <td class="good">70ms</td>
-                                        <td class="warning">55ms</td>
-                                        <td class="good">5ms</td>
-                                        <td class="warning">10ms</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Rwports</td>
-                                        <td class="good">16ms</td>
-                                        <td class="good">62ms</td>
-                                        <td class="danger">30ms</td>
-                                        <td class="good">90ms</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>login</td>
-                                        <td class="good">10ms</td>
-                                        <td class="good">23ms</td>
-                                        <td class="good">9ms</td>
-                                        <td class="good">37ms</td>
-                                    </tr>
+                                <tbody id="apiLatencyTableBody">
+                                       
                                 </tbody>
                             </table>
                             
@@ -331,41 +329,14 @@
 
                                 <thead>
                                     <tr>
-                                        <th>Alertk</th>
-                                        <th>Date</th>
+                                        <th>Alert</th>
+                                        <th>Source</th>
+                                        <th>Severity</th>
+                                        <th>Time</th>
                                     </tr>
                                 </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td>Unauthorized login attempt</td>
-                                        <td>01/09/2026</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Multiple failed API calls</td>
-                                        <td>3/9/2026</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Multiple failed API calls</td>
-                                        <td>31/9/2026</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Multiple failed API calls</td>
-                                        <td>31/10/2026</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Multiple failed API calls</td>
-                                        <td>31/10/2026</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Multiple failed API calls</td>
-                                        <td>31/10/2026</td>
-                                    </tr>
+                                <tbody id="securityAlertTableBody">
 
                                 </tbody>
                             </table>
@@ -385,8 +356,9 @@
                             <span class="kpi-icon"><i class="bx bx-trending-up" ></i></span>
                         </div>
 
-                        <div class="chart-area" id="billingRevenueChart">
+                        <div class="chart-area">
 
+                            <canvas class="billingRevenueChart"></canvas>
                             
                         </div>
                     </section>
@@ -400,26 +372,12 @@
                             <div><h3>Admin Tasks & Notification</h3></div>
 
                         </div>
+
+                        <div class="admin-task-list" id="adminTaskList">
+                            
+                        </div>
                         
-                        <ul class="admin-task-list">
-
-                            <li class="admin-task-item">
-
-                                <span>License renewal due for institution</span>
-                                <button class="task-action"><i class="bx bx-cog" ></i></button>
-                            </li>
-
-                            <li class="admin-task-item">
-
-                                <span>New system Update available</span>
-                                <button class="task-action"><i class="bx bx-cog" ></i></button>
-                            </li>
-                            <li class="admin-task-item">
-
-                                <span>Renewal pending feature request</span>
-                                <button class="task-action"><i class="bx bx-cog" ></i></button>
-                            </li>
-                        </ul>
+                        
                     </section>
                     
                     
@@ -431,7 +389,10 @@
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="scripts/admin.js"></script>
+    <script src="scripts/chart.js"></script>
     
 </body>
 </html>
