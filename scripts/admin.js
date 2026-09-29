@@ -392,3 +392,242 @@ adminTasks.forEach(function(task) {
 
     adminTaskList.appendChild(taskItem);
 });
+
+
+/*==========================================================
+NOTIFICATION PANEL
+======================================================= */
+
+const notifications = [
+    {
+        text: "New institution registration",
+        time: "Recently",
+        icon: "bx bx-building-house",
+        action: "institution",
+        read: false
+
+    },
+    {
+        text: "License renewal pending",
+        time: "10 minutes ago",
+        icon: "bx bx-credit-card",
+        action: "license",
+        read: false
+    },
+    {
+        text: "Security alert requires review",
+        time: "30 minutes ago",
+        icon: "bx bx-shield-quarter",
+        action: "security",
+        read: false
+    }
+];
+
+const notificationPanel = document.querySelector(".notification-panel");
+
+// creating unread count
+
+const unreadCount = notifications.filter(function(notifcation) {
+    return notifcation.read === false;
+}).length;
+
+// Creating an header
+
+const notificationHeader = document.createElement("div");
+notificationHeader.classList.add("notification-header");
+
+// Creating a close button
+
+const closeBtn = document.createElement("button");
+closeBtn.classList.add("notification-close-btn");
+notificationHeader.appendChild(closeBtn);
+
+const closeIcon = document.createElement("i");
+closeIcon.className = "bx bx-x";
+closeBtn.appendChild(closeIcon);
+
+// Creating an header title
+
+const notificationTitle = document.createElement("h3");
+notificationTitle.textContent = "Notifications";
+notificationHeader.appendChild(notificationTitle);
+
+// Creating an header count
+
+const notificationCount = document.createElement("span");
+notificationCount.textContent = unreadCount + " New";
+notificationHeader.appendChild(notificationCount);
+
+//Puting an header into the notification panel
+
+notificationPanel.appendChild(notificationHeader);
+
+notifications.forEach(function(notification) {
+
+    //Creating notification item div
+
+    const notificationItem = document.createElement("div");
+    notificationItem.classList.add("notification-item");
+
+    //Creating notification icon
+
+    const notificationIcon = document.createElement("i");
+    notificationIcon.className = notification.icon;
+
+    // adding notification content to notification item div
+
+    notificationItem.appendChild(notificationIcon);
+
+    //Creating notification content div
+
+    const notificationContents = document.createElement("div");
+    notificationContents.classList.add("notification-content");
+
+    // adding notification content to notification item div
+
+    notificationItem.appendChild(notificationContents);
+
+    //Creating notification text paragraph
+
+    const notificationText = document.createElement("p");
+    notificationText.textContent = notification.text;
+    notificationText.classList.add("notification-text");
+
+    // adding the text to notification content
+
+    notificationContents.appendChild(notificationText);
+
+    //Creating notification time span
+
+    const notificationTime = document.createElement("span");
+    notificationTime.textContent = notification.time;
+    notificationTime.classList.add("notification-time");
+
+    // adding the time to notification content
+
+    notificationContents.appendChild(notificationTime);
+
+    // Adding notification item to the Panel
+
+    notificationPanel.appendChild(notificationItem);
+
+    //Making the notification item take some where when clicked
+
+    notificationItem.addEventListener("click", () => {
+
+        if (notification.action === "institution") {
+            document.querySelector(".activity-panel").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (notification.action === "license") {
+            document.querySelector(".billing-panel").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (notification.action === "security") {
+            document.querySelector(".security-panel").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+
+
+});
+
+// Opening the notification bell when clicked
+
+const notificationBtn = document.querySelector(".notification-btn");
+
+notificationBtn.addEventListener("click", () => {
+    notificationPanel.style.display = notificationPanel.style.display === "block"
+                                                                            ? "none"
+                                                                            : "block";
+});
+
+// notification close button
+
+const notificationCloseBtn = document.querySelector(".notification-close-btn");
+
+notificationCloseBtn.addEventListener("click", () => {
+    notificationPanel.style.display = "none";
+});
+
+// Closing the notification panel when clicked outside it
+
+document.addEventListener("click", (event) => {
+    if (notificationBtn.contains(event.target)) {
+        return;
+    }
+
+    if (notificationPanel.contains(event.target)) {
+        return;
+    }
+
+    notificationPanel.style.display = "none";
+});
+
+/*==========================================================
+SIDEBAR FUNCTIONALITY
+======================================================= */
+
+const sidebarToggle = document.querySelector("#sidebarToggle");
+
+const sidebar = document.querySelector(".sidebar");
+
+
+sidebarToggle.addEventListener("click", () => {
+
+    sidebar.classList.toggle("sidebar-open");
+
+}); 
+
+// CLOSING THE SIDEBAR
+
+const sidebarClose = document.querySelector(".sidebar-close");
+
+
+
+sidebarClose.addEventListener("click", () => {
+
+    sidebar.classList.remove("sidebar-open");
+
+}); 
+
+// CLICKING OUTSIDDE THE SIDEBAR
+
+document.addEventListener("click", (event) => {
+
+    if (window.innerWidth > 1024) {
+        return;
+    }
+
+    if (sidebar.contains(event.target)) {
+        return;
+    }
+
+    if (sidebarToggle.contains(event.target)) {
+        return;
+    }
+
+    sidebar.classList.remove("sidebar-open");
+});
+
+// ADDING ANG REMOVING THE ACTIVE CLASS
+
+const navItems = document.querySelectorAll(".nav-item");
+
+navItems.forEach(function(link) {
+
+    link.addEventListener("click", () => {
+
+        navItems.forEach(function(item) {
+
+            item.classList.remove("active");
+        });
+
+        link.classList.add("active");
+    });
+});
